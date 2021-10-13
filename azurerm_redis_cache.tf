@@ -12,10 +12,6 @@ resource "azurerm_redis_cache" "redis" {
   redis_version        = 6
   shard_count          = 4
 
-  tags = {
-    "environment" = var.environment
-  }
-
   redis_configuration {
   }
 }
