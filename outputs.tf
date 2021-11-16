@@ -2,7 +2,7 @@ locals {
   redisgeek_config = {
     hostname   = azurerm_redis_cache.redis.hostname
     access_key = azurerm_redis_cache.redis.primary_access_key
-    port       = "10000"
+    port       = azurerm_redis_cache.redis.ssl_port
   }
 }
 
