@@ -1,10 +1,12 @@
-output "azure_redis_host" {
-  value       = azurerm_redis_cache.redis.hostname
-  description = "The Redis server URL."
+locals {
+  redisgeek_config = {
+    hostname   = azurerm_redis_cache.redis.hostname
+    access_key = azurerm_redis_cache.redis.primary_access_key
+    port       = "10000"
+  }
 }
 
-output "azure_redis_password" {
-  value       = azurerm_redis_cache.redis.primary_access_key
-  sensitive   = true
-  description = "The Redis server password."
+output "redisgeek_config" {
+  value     = local.redisgeek_config
+  sensitive = true
 }
